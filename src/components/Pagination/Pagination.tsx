@@ -1,4 +1,4 @@
-import React = require('react');
+import React from 'react';
 
 type Props = {
   total: number;
@@ -14,11 +14,7 @@ export const Pagination: React.FC<Props> = ({
   onPageChange,
 }) => {
   const totalPages = Math.ceil(total / perPage);
-  const arrayPages = [];
-
-  for (let i = 0; i < totalPages; i++) {
-    arrayPages.push(i);
-  }
+  const arrayPages = Array.from({ length: totalPages }, (_, i) => i + 1);
 
   return (
     <ul className="pagination">
@@ -54,7 +50,7 @@ export const Pagination: React.FC<Props> = ({
               }
             }}
           >
-            1
+            {page}
           </a>
         </li>
       ))}

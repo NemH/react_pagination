@@ -1,8 +1,8 @@
+import React from 'react';
 import './App.css';
 import { getNumbers } from './utils';
 import { Pagination } from './components/Pagination';
 import { useState } from 'react';
-import React from 'react';
 
 const items = getNumbers(1, 42).map(n => `Item ${n}`);
 
@@ -28,11 +28,11 @@ export const App: React.FC = () => {
       <h1>Items with Pagination</h1>
 
       <p className="lead" data-cy="info">
-        Page 1 (items 1 - 5 of 42)
+        Page {currentPage} (items {start + 1} - {end + 1} of {items.length})
       </p>
 
       <div className="form-group row">
-        <div className="col-3 col-sm-2 col-xl-1">
+        <div className="col-3 col-sm-2 col-xl-1"> 
           <select
             data-cy="perPageSelector"
             id="perPageSelector"
